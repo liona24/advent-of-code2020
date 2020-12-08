@@ -32,29 +32,28 @@ fn solve_first() {
 fn solve_second() {
     let input = read_lines("inputs/d06/input.txt").expect("Could not find input for day 6!");
 
-    let mut groups = Vec::new();
-    let mut current_group: Option<HashSet<_>> = None;
+    let mut groups = vec![Vec::new()];
 
     for line in input.filter_map(|line| line.ok()) {
         if line.is_empty() {
-            groups.push(current_group.unwrap());
-            current_group = None;
+            groups.push(Vec::new());
             continue;
         }
 
         let chars: HashSet<_> = line.chars().collect();
+        groups.last_mut().unwrap().push(chars);
+    }
 
-        current_group = if let Some(set) = current_group {
-            Some(set.intersection(&chars).cloned().collect())
-        } else {
-            Some(chars)
+    let mut sum = 0;
+    for mut group in groups {
+        if let Some(chars) = group.pop() {
+            for c in chars {
+                if group.iter().all(|set| set.contains(&c)) {
+                    sum += 1;
+                }
+            }
         }
     }
 
-    if let Some(current_group) = current_group {
-        groups.push(current_group);
-    }
-
-    let ans = groups.iter().fold(0, |sum, set| sum + set.len());
-    println!("The solution is {}", ans);
+    println!("The solution is {}", sum);
 }
