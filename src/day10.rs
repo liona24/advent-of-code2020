@@ -42,6 +42,11 @@ fn count_sub(diffs: Vec<usize>) -> usize {
     // could be equal to 2 aswell
     assert!(diffs.into_iter().all(|i| i == 1));
 
+    // Other than that, this simple solution only works because of the
+    // following assertion.
+    // Poorly designed task I guess :(
+    assert!(len <= 4);
+
     if len == 0 {
         return 1;
     }
