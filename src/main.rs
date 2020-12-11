@@ -23,5 +23,8 @@ fn main() {
     day08::solve();
     day09::solve();
     day10::solve();
-    day11::solve();
+    if cfg!(release) {
+        // Not cool for everyday running, takes a couple of seconds
+        day11::solve();
+    }
 }
