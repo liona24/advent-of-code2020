@@ -77,13 +77,13 @@ fn loop4d(
 }
 
 pub fn solve() {
-    if cfg!(release) {
+    if cfg!(debug_assertions) {
+        println!("Day 17 - Skipped for debug build.")
+    } else {
         println!("Day 17 - Part 1");
         solve_first();
-        println!("      - Part 2");
+        println!("       - Part 2");
         solve_second();
-    } else {
-        println!("Day 17 - Skipped.")
     }
     println!();
 }

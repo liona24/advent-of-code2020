@@ -30,12 +30,7 @@ fn main() {
     day08::solve();
     day09::solve();
     day10::solve();
-    if cfg!(release) {
-        // Not cool for everyday running, takes a couple of seconds
-        day11::solve();
-    } else {
-        println!("Day 11 - Skipped.");
-    }
+    day11::solve();
     day12::solve();
     day13::solve();
     day14::solve();

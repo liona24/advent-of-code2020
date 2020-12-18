@@ -1,9 +1,9 @@
-use crate::util::{read_lines, lcm};
+use crate::util::{lcm, read_lines};
 
 pub fn solve() {
     println!("Day 13 - Part 1");
     solve_first();
-    println!("      - Part 2");
+    println!("       - Part 2");
     solve_second();
     println!();
 }

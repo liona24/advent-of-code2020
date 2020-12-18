@@ -10,11 +10,9 @@ pub fn solve() {
     println!();
 }
 
-
 type Rules = HashMap<String, Vec<(usize, String)>>;
 
-
-fn parse_rules(lines : impl Iterator<Item = String>) -> Option<Rules> {
+fn parse_rules(lines: impl Iterator<Item = String>) -> Option<Rules> {
     let mut rules = Rules::new();
 
     for line in lines {
@@ -43,7 +41,7 @@ fn solve_first() {
     let input = read_lines("inputs/d07/input.txt").expect("Could not find input for day 7!");
 
     let rules = parse_rules(input.filter_map(|line| line.ok())).expect("Invalid format!");
-    let mut tree : HashMap<String, Vec<String>> = HashMap::new();
+    let mut tree: HashMap<String, Vec<String>> = HashMap::new();
 
     for (name, contained) in rules {
         if !tree.contains_key(&name) {
@@ -76,7 +74,7 @@ fn solve_first() {
     println!("The solution is {}", ans);
 }
 
-fn count_bags(rules : &Rules, name: &str) -> usize {
+fn count_bags(rules: &Rules, name: &str) -> usize {
     let refs = rules.get(name).expect("No spec for bag found!");
     let mut ans = 0;
 

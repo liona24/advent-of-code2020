@@ -124,7 +124,7 @@ fn parse(lines: impl Iterator<Item = String>) -> impl Iterator<Item = (Instructi
 pub fn solve() {
     println!("Day 12 - Part 1");
     solve_first();
-    println!("      - Part 2");
+    println!("       - Part 2");
     solve_second();
     println!();
 }

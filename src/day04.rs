@@ -8,7 +8,9 @@ fn has_digits_only_10(s: &str) -> bool {
 }
 
 fn has_digits_only_16(s: &str) -> bool {
-    const DIGITS: [char; 16] = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'];
+    const DIGITS: [char; 16] = [
+        '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f',
+    ];
     s.chars().all(|c| DIGITS.contains(&c))
 }
 
@@ -77,12 +79,12 @@ impl Passport {
                     v[..v.len() - 2]
                         .parse::<u32>()
                         .map_or(false, |v| v <= max && v >= min)
-                },
+                }
                 "hcl" => v.starts_with('#') && v.len() == 7 && has_digits_only_16(&v[1..]),
                 "ecl" => {
                     const COLORS: [&str; 7] = ["amb", "blu", "brn", "gry", "grn", "hzl", "oth"];
                     COLORS.contains(&v.as_ref())
-                },
+                }
                 "pid" => v.len() == 9 && has_digits_only_10(&v),
                 _ => true,
             }

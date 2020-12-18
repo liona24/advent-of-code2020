@@ -51,7 +51,7 @@ impl Map {
 impl std::ops::Index<(usize, usize)> for Map {
     type Output = Tile;
 
-    fn index(&self, xy : (usize, usize)) -> &Self::Output {
+    fn index(&self, xy: (usize, usize)) -> &Self::Output {
         &self.values[(xy.0 % self.width) + (xy.1 * self.width)]
     }
 }
@@ -64,7 +64,7 @@ pub fn solve() {
     println!();
 }
 
-fn count_on_slope(map : &Map, dx : usize, dy: usize) -> usize {
+fn count_on_slope(map: &Map, dx: usize, dy: usize) -> usize {
     let mut tree_count = 0;
     let mut x = 0;
     for y in (0..map.height).step_by(dy) {

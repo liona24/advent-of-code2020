@@ -9,14 +9,14 @@ pub fn solve() {
 }
 
 struct Match {
-    char_to_search : char,
-    min_reps : usize,
-    max_reps : usize,
-    password : String
+    char_to_search: char,
+    min_reps: usize,
+    max_reps: usize,
+    password: String,
 }
 
 impl Match {
-    fn parse(mut line : String) -> Self {
+    fn parse(mut line: String) -> Self {
         // this is pretty ugly but we kinda follow the goal of std only
 
         let password = line.find(&": ").expect("Invalid input!");
@@ -39,12 +39,16 @@ impl Match {
             char_to_search,
             min_reps,
             max_reps,
-            password
+            password,
         }
     }
 
     fn check(&self) -> bool {
-        let count = self.password.chars().filter(|&c| c == self.char_to_search).count();
+        let count = self
+            .password
+            .chars()
+            .filter(|&c| c == self.char_to_search)
+            .count();
         count >= self.min_reps && count <= self.max_reps
     }
 

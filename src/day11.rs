@@ -160,11 +160,15 @@ fn simulate2(from: &Map, into: &mut Map) {
 }
 
 pub fn solve() {
-    println!("Day 11 - Part 1");
-    solve_first();
-    println!("      - Part 2");
-    solve_second();
-    println!();
+    if cfg!(debug_assertions) {
+        println!("Day 11 - Skipped for debug build.");
+    } else {
+        println!("Day 11 - Part 1");
+        solve_first();
+        println!("       - Part 2");
+        solve_second();
+        println!();
+    }
 }
 
 fn solve_first() {

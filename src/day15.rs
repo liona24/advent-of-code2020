@@ -5,11 +5,11 @@ pub fn solve() {
 
     println!("Day 15 - Part 1");
     solve_chall(&INPUT, 2020);
-    println!("      - Part 2");
-    if cfg!(release) {
-        solve_chall(&INPUT, 30000000);
+    println!("       - Part 2");
+    if cfg!(debug_assertions) {
+        println!("Skipped for debug build.");
     } else {
-        println!("Skipped.");
+        solve_chall(&INPUT, 30000000);
     }
     println!();
 }
